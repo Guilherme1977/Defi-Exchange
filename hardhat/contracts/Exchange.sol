@@ -57,7 +57,7 @@ contract Exchange is ERC20 {
             // Ration here is -> (cryptoDevTokenAmount user can add/cryptoDevTokenReserve in the contract) = (Eth Sent by the user/Eth Reserve in the contract);
             // So doing some maths, (cryptoDevTokenAmount user can add) = (Eth Sent by the user * cryptoDevTokenReserve /Eth Reserve);
             uint cryptoDevTokenAmount = (msg.value * cryptoDevTokenReserve)/(ethReserve);
-            require(_amount >= cryptoDevTokenAmount, "Amount of tokens sent is less than the minimum tokens required");
+            require(_amount >= cryptoDevTokenAmount, "amount of tokens sent is less than the minimum tokens required");
             // transfer only (cryptoDevTokenAmount user can add) amount of `Crypto Dev tokens` from users account
             // to the contract
             cryptoDevToken.transferFrom(msg.sender, address(this), cryptoDevTokenAmount);
